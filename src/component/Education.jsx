@@ -149,23 +149,33 @@ const styles = {
   },
   cardText: {
     fontSize: "14px",
-
   },
 };
 
+// Responsive CSS
 const css = `
   .education-card:hover {
     transform: scale(1.05);
   }
+  
+  /* Mobile Styling */
   @media (max-width: 768px) {
     .education-card {
       flex-direction: column;
       text-align: center;
+      padding: 15px;
     }
     .education-card img {
       margin: 0 auto 10px;
-      width: 100px;
+      width: 60px; /* Smaller image for mobile */
+    }
+    .education .text-center {
+      font-size: 28px; /* Slightly smaller title */
+    }
+    .education-card div {
+      margin-bottom: 10px;
     }
   }
 `;
+
 document.head.insertAdjacentHTML("beforeend", `<style>${css}</style>`);

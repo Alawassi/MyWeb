@@ -1,7 +1,5 @@
-import './Contact.css';
 import React, { useState } from 'react';
-import Swal from 'sweetalert2'
-
+import Swal from 'sweetalert2';
 
 export default function Contact() {
     const [formData, setFormData] = useState({
@@ -9,7 +7,7 @@ export default function Contact() {
         name: '',
         comment: ''
     });
-    const [result, setResult] = useState(''); // State for feedback messages
+    const [result, setResult] = useState('');
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -18,7 +16,6 @@ export default function Contact() {
 
     const onSubmit = async (event) => {
         event.preventDefault();
-       // setResult(" ");
 
         const formData = new FormData(event.target);
         formData.append("access_key", "b2c24a0c-294a-4680-a36b-0042e25807de");
@@ -34,11 +31,11 @@ export default function Contact() {
             if (data.success) {
                 Swal.fire({
                     title: "Good job!",
-                    text: "You clicked the button!",
+                    text: "Your message was sent successfully!",
                     icon: "success"
                 });
                 event.target.reset();
-                setFormData({ email: '', name: '', comment: '' }); // Reset local formData state
+                setFormData({ email: '', name: '', comment: '' });
             } else {
                 console.log("Error", data);
                 setResult(data.message || "Submission failed. Please try again.");
@@ -52,10 +49,10 @@ export default function Contact() {
     return (
         <section id="contact">
             <div className="container">
-                <div className="text-center" style={{ fontSize: '2em' }}>Contact Me</div>
+                <div className="text-center mb-4">Contact Me</div>
 
-                <div className="row">
-                    <div className="col-md-8">
+                <div className="row justify-content-center">
+                    <div className="col-12 col-md-8 col-lg-6">
                         <form onSubmit={onSubmit}>
                             <div className="mb-3">
                                 <label htmlFor="email" className="form-label">Email address</label>
@@ -93,12 +90,58 @@ export default function Contact() {
                                     required
                                 ></textarea>
                             </div>
-                            <button type="submit" className="btn btn-primary">Submit</button>
-                            <span>{result}</span>
+                            <button type="submit" className="btn btn-primary w-100">Submit</button>
+                            <span className="d-block mt-2 text-center">{result}</span>
                         </form>
                     </div>
                 </div>
             </div>
+
+            <style jsx>{`
+                #contact {
+                    padding: 40px;
+                    font-size: 1.2em;
+                }
+                .container {
+                    max-width: 100%;
+                    margin: auto;
+                }
+                .text-center {
+                    font-size: 3em;
+                }
+                .form-control {
+                    font-size: 1em;
+                }
+
+                /* Responsive adjustments */
+                @media (max-width: 768px) {
+                    #contact {
+                        padding: 40px;
+                    }
+                    .text-center {
+                        font-size: 5em;
+                    }
+                    .form-control {
+                        font-size: 1em;
+                    }
+                }
+
+                @media (max-width: 576px) {
+                    #contact {
+                        padding: 15px;
+                    }
+                    .text-center {
+                        font-size: 1.3em;
+                    }
+                    .form-control {
+                        font-size: 0.85em;
+                    }
+                    .container {
+                        width: 100%;
+                        padding: 0 10px;
+                    }
+                }
+            `}</style>
         </section>
     );
 }

@@ -36,12 +36,12 @@ export default function Home() {
                 <Box className="heading"  mb={4}>
                     <Box className="has-animation animation-ltr" data-delay="10">
                         <Typography variant="h3" component="p" className="bigger" gutterBottom>
-                            Hey THERE!
+                            Hey Im Hussein
                         </Typography>
                     </Box>
                     <Box className="has-animation animation-rtl" data-delay="20">
                         <Typography variant="h4" component="p" className="bigger">
-                            WELCOME TO MY PORTFOLIO
+                            Fullstack Developer
                         </Typography>
                     </Box>
                 </Box>

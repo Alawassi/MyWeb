@@ -1,5 +1,4 @@
 import React from "react";
-import "./Projects.css";
 import {Button} from "@mui/material";
 
 export default function Projects() {

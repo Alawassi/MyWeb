@@ -68,7 +68,7 @@ export default function About() {
               variant="outlined"
               onClick={onButtonClickCV}
           >
-            Outlined
+            CV
             <BrowserUpdatedIcon/>
           </Button>
         </div>

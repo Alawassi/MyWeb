@@ -1,8 +1,0 @@
-.education-card {
-    transition: transform 0.3s ease;
-    /* Smooth scaling effect */
-}
-
-.education-card:hover {
-    transform: scale(1.1);
-}
