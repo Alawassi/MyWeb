@@ -1,0 +1,157 @@
+
+/* Styling for the heading section */
+
+@media (max-width: 730px) {
+    .card-main-title {
+        font-size: 15rem;
+
+    }
+}
+
+/* Responsive adjustments for smaller screens */
+
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        /* Add space between title and image in vertical layout */
+    }
+    .title {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    .brand-image {
+        max-width: 75%;
+    }
+}
+
+
+/**********************/
+
+@keyframes drop {
+    0% {
+        top: -50%;
+    }
+    100% {
+        top: 110%;
+    }
+}
+
+:root {
+    --color--main: #300220;
+}
+
+
+.bigger {
+    margin: 0;
+    font-size: 70px;
+    font-weight: 800;
+    padding: 20px;
+    text-transform: uppercase;
+    display: inline-block;
+    position: relative;
+}
+
+.text {
+    max-width: 600px;
+    width: 100%;
+    line-height: 24px;
+    text-align: left;
+    padding: 20px;
+}
+
+.text.txt-center {
+    text-align: center;
+}
+
+/* ANIMATION */
+
+.has-animation {
+    position: relative;
+}
+
+.has-animation p,
+.has-animation img {
+    opacity: 0;
+}
+
+.has-animation.animate-in p,
+.has-animation.animate-in img {
+    animation: textHidden 0.1s 1.1s forwards;
+}
+
+.has-animation.animate-in::before,
+.has-animation.animate-in::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    z-index: 10;
+}
+
+.has-animation.animate-in::before {
+    background-color: var(--color--main);
+}
+
+.has-animation.animate-in::after {
+    background-color: color-mix(in oklab, var(--color--main) 40%, black);
+    animation-delay: 0.5s;
+}
+
+.has-animation.animation-ltr.animate-in::before {
+    animation: revealLTR 1.8s ease;
+}
+
+.has-animation.animation-ltr.animate-in::after {
+    animation: revealLTR 1s 0.6s ease;
+}
+
+.has-animation.animation-rtl.animate-in::before {
+    animation: revealRTL 1.8s ease;
+}
+
+.has-animation.animation-rtl.animate-in::after {
+    animation: revealRTL 1s 0.6s ease;
+}
+
+@keyframes revealRTL {
+    0% {
+        width: 0;
+        right: 0;
+    }
+    65% {
+        width: 100%;
+        right: 0;
+    }
+    100% {
+        width: 0;
+        right: 100%;
+    }
+}
+
+@keyframes revealLTR {
+    0% {
+        width: 0;
+        left: 0;
+    }
+    65% {
+        width: 100%;
+        left: 0;
+    }
+    100% {
+        width: 0;
+        left: 100%;
+    }
+}
+
+@keyframes textHidden {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
